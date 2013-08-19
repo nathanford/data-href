@@ -7,10 +7,11 @@ Integrating with your HTML is simple: copy the script into your JS, and then add
 
 &lt;article data-href="/content-page">
 
-&nbsp;&nbsp;&lt;h1>&lt;a href="/content-page">Headline goes here.&lt;/a>&lt;/h1>
-&nbsp;&nbsp;&lt;p>And here goes a bit of copy about the content of the article.&lt;/p>
+&nbsp;&nbsp;&nbsp;&lt;h1>&lt;a href="/content-page">Headline goes here.&lt;/a>&lt;/h1>
+
+&nbsp;&nbsp;&nbsp;&lt;p>And here goes a bit of copy about the content of the article.&lt;/p>
   
-&nbsp;&nbsp;&lt;small>Tags: &lt;a href="/tags/content">content&lt;/a>, &lt;a href="/tags/headlines">headlines&lt;/a>&lt;/small>
+&nbsp;&nbsp;&nbsp;&lt;small>Tags: &lt;a href="/tags/content">content&lt;/a>, &lt;a href="/tags/headlines">headlines&lt;/a>&lt;/small>
 
 &lt;/article>
 
