@@ -17,4 +17,4 @@ Integrating with your HTML is simple: copy the script into your JS, and then add
 
 Priority will be given to any nested link’s href. So, if you click an element with a data-href, you go to the data-href URL; if you click a link inside of that element, you go to the URL on that link.
 
-Demo here: 
+Demo here: http://nathanford.github.io/data-href
