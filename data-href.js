@@ -1,21 +1,25 @@
 sethrefs = function () {
-
-	var datahrefs = document.querySelectorAll('[data-href]'),
-			dhcount = datahrefs.length;
 	
-	while (dhcount-- > 0) {
+	if (document.querySelectorAll) {
+	
+		var datahrefs = document.querySelectorAll('[data-href]'),
+				dhcount = datahrefs.length;
 		
-		var ele = datahrefs[dhcount],
-				link = function (event) {
-				
-					var target = event.target;
+		while (dhcount-- > 0) {
+			
+			var ele = datahrefs[dhcount],
+					link = function (event) {
 					
-					if (!event.target.href) window.location.href = this.getAttribute('data-href');
-				
-				};
+						var target = event.target;
+						
+						if (!event.target.href) window.location.href = this.getAttribute('data-href');
+					
+					};
+			
+			if(ele.addEventListener) ele.addEventListener('click', link, false);
+			else ele.attachEvent('onclick', link);
 		
-		if(ele.addEventListener) ele.addEventListener('click', link, false);
-		else ele.attachEvent('onclick', link);
+		}
 	
 	}
 	
