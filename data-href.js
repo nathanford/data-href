@@ -8,19 +8,46 @@ sethrefs = function () {
 		while (dhcount-- > 0) {
 			
 			var ele = datahrefs[dhcount],
+					addevent = function (ele, event, func) {
+					
+						if(ele.addEventListener) ele.addEventListener(event, link, false);
+						else ele.attachEvent('on' + event, link);
+					
+					},
 					link = function (event) {
 						
 						var target = event.target,
-								leftclicked = ('buttons' in event && event.buttons === 1) ? true : 
-															('which' in event && event.which === 1) ? true : 
-															(event.button === 1) ? true : false;
+								url = this.getAttribute('data-href');
 						
-						if (!event.target.href) window.location.href = this.getAttribute('data-href');
-					
+						if (!target.href) {
+					    		
+			    		var newevent = document.createEvent("MouseEvents");
+			    		
+			    		if (newevent.initMouseEvent) {
+			    		
+			    			var newlink = document.createElement("a");
+		    			  
+		    			  newlink.setAttribute('href', url);
+		    			  newlink.innerHTML = 'link event';
+		    			  
+	    					newevent.initMouseEvent(event.type, true, false, window, event.detail, event.screenX, event.screenY, event.clientX, event.clientY, event.ctrlKey, event.altKey, event.shiftKey, event.metaKey, event.button, null);
+	    					
+	    					newlink.dispatchEvent(newevent);
+				    	
+				    	}
+				    	else {
+				    	
+				    		var meta = (event.metaKey) ? '_self' : '_blank';
+				    		
+				    		window.open(url, meta);
+				    	
+				    	}
+					    
+						}
+						
 					};
 			
-			if(ele.addEventListener) ele.addEventListener('click', link, false);
-			else ele.attachEvent('onclick', link);
+			addevent(ele, 'click', link);
 		
 		}
 	
