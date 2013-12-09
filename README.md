@@ -22,4 +22,7 @@ Priority will be given to any nested link’s href. So, if you click an element 
 
 Demo here: http://nathanford.github.io/data-href
 
-_Please note:_ This is an enhancement. You should still provide a regular anchor link to your content somewhere in the element. In the example, the H1 still links to the content-page, and would work fine even if JavaScript was turned off.
+## Limitations
+The latest version will now allow CMD+Click events to work properly in Webkit browsers, but will silently fail in FF and IE. As support for initMouseEvent is implemented, this should get better. Therefore…
+
+_Please note:_ This is an enhancement. You should still provide a regular anchor link to your content somewhere in the element. In the example, the H1 still links to the content-page, and would work fine even if JavaScript was turned off, or if the user is in a browser that does not support the methods used in the JavaScript.
